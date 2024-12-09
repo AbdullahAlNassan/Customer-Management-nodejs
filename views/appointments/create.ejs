@@ -1,39 +1,104 @@
-<%- include("../partials/header.ejs") %>
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="auto">
+  <head>
+    <script src="../js/color-modes.js"></script>
+    <link
+      rel="stylesheet"
+      href="../bootstrap-icons-1.10.5/font/bootstrap-icons.min.css"
+    />
+    <link rel="shortcut icon" href="../img/ali.png" type="image/x-icon">
 
-<div class="container mt-4">
-  <h1>Add New Appointment</h1>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta
+      name="author"
+      content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+    />
+    <meta name="generator" content="Hugo 0.112.5" />
+    <title>Add Appointment</title>
 
-  <form action="/appointments/create" method="POST">
-    <div class="mb-3">
-      <label for="customerName" class="form-label">Customer Name</label>
-      <input type="text" class="form-control" id="customerName" name="customerName" required>
-    </div>
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/dark-light.css">
+    <link href="../css/sidebars.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/myStyle.css" />
+  </head>
+  <body>
+    <%- include('../Components/dark-light.ejs') %>
 
-    <div class="mb-3">
-      <label for="address" class="form-label">Address</label>
-      <input type="text" class="form-control" id="address" name="address" required>
-    </div>
+    <main class="d-flex flex-nowrap">
+      <%- include('../Components/sidebar.ejs', {currentPage: "appointments"}) %>
 
-    <div class="mb-3">
-      <label for="date" class="form-label">Date</label>
-      <input type="date" class="form-control" id="date" name="date" required>
-    </div>
+      <section class="w-100">
+        <%- include('../Components/navbar.ejs') %>
 
-    <div class="mb-3">
-      <label for="time" class="form-label">Time</label>
-      <input type="time" class="form-control" id="time" name="time" required>
-    </div>
+        <form action="/appointments/create" method="POST" class="mx-0 row gx-3 gy-4 mt-3">
+          <div class="col-md-6">
+            <label for="customerName" class="form-label">Customer Name:</label>
+            <input
+              name="customerName"
+              placeholder="Customer name..."
+              type="text"
+              class="form-control"
+              id="customerName"
+              required
+            />
+          </div>
 
-    <div class="mb-3">
-      <label for="notes" class="form-label">Notes (Optional)</label>
-      <textarea class="form-control" id="notes" name="notes" rows="3"></textarea>
-    </div>
+          <div class="col-md-6">
+            <label for="address" class="form-label">Address:</label>
+            <input
+              name="address"
+              placeholder="Address..."
+              type="text"
+              class="form-control"
+              id="address"
+              required
+            />
+          </div>
 
-    <div class="mb-3">
-      <button type="submit" class="btn btn-primary">Save Appointment</button>
-      <a href="/appointments" class="btn btn-secondary">Cancel</a>
-    </div>
-  </form>
-</div>
+          <div class="col-md-6">
+            <label for="date" class="form-label">Date:</label>
+            <input
+              name="date"
+              type="date"
+              class="form-control"
+              id="date"
+              required
+            />
+          </div>
 
-<%- include("../partials/footer.ejs") %>
+          <div class="col-md-6">
+            <label for="time" class="form-label">Time:</label>
+            <input
+              name="time"
+              type="time"
+              class="form-control"
+              id="time"
+              required
+            />
+          </div>
+
+          <div class="col-md-12">
+            <label for="notes" class="form-label">Notes (Optional):</label>
+            <textarea
+              name="notes"
+              class="form-control"
+              id="notes"
+              rows="3"
+              placeholder="Add any additional notes..."
+            ></textarea>
+          </div>
+
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary">Save Appointment</button>
+            <a href="/appointments" class="btn btn-secondary">Cancel</a>
+          </div>
+        </form>
+      </section>
+    </main>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/sidebars.js"></script>
+    <script src="../js/main.js"></script>
+  </body>
+</html>
